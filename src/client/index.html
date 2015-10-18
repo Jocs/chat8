@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='initial-scale=1.0, user-scalable=no, width=device-width,initial-scale=1.0,height=device-height'/>
+	<title>WeChat</title>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="login_components/login.css">
+	<link rel="stylesheet" href="chat_components/chat.css">
+	<link rel="stylesheet" href="./map_components/map.css">
+</head>
+<body>
+	<div id='login' style='display:block'>
+		<div id='portrail'>
+			<div id="loginName"></div>
+			<div id="selectPortrail"></div>
+			<a id='beginChat'>Chating</a>
+		</div>
+		<div id='nickname'>
+			<div id='loginInfo'>
+				<canvas id="loginCanvas"></canvas>
+				<p id='loginWarning'></p>
+			</div>
+			<h3>What's your nickname?</h3>
+			<input type="text" id='nicenameInput' placeholder='请输入您的昵称' required autofocus/>
+		</div>
+		<div id="portrailTable">
+			<!--Javascript动态加载头像列表-->
+			<!-- <div class='portrailRow'>
+				<div class='portrailCell'>
+					<img src="images/portrail/1.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/2.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/3.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/4.jpg" alt="">
+				</div>
+			</div>
+			<div class='portrailRow'>
+				<div class='portrailCell'>
+					<img src="images/portrail/5.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/6.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/7.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/8.jpg" alt="">
+				</div>
+			</div>
+			<div class='portrailRow'>
+				<div class='portrailCell'>
+					<img src="images/portrail/9.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/10.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/11.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/12.jpg" alt="">
+				</div>
+			</div>
+			<div class='portrailRow'>
+				<div class='portrailCell'>
+					<img src="images/portrail/13.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/14.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/15.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/16.jpg" alt="">
+				</div>
+			</div>
+			<div class='portrailRow'>
+				<div class='portrailCell'>
+					<img src="images/portrail/17.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/18.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/19.jpg" alt="">
+				</div>
+				<div class='portrailCell'>
+					<img src="images/portrail/20.jpg" alt="">
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div id='chatPage'>
+		<header>
+			<div id="logo">WeChat(1)</div>
+			<div id='messagePage' style='display:none'>
+				<div id="back"><span class='glyphicon glyphicon-menu-left'></span>WeChat</div>
+				<div id='currentChater'>WuJingWen</div>
+				<div id='backChat' style='display:none'>返回聊天</div>
+			</div>
+			<div id="mapTop">
+				<div id="mapTopText">地图</div>
+				<a id='getPosition'><span class='glyphicon glyphicon-map-marker'></span></a>
+			</div>
+		</header>
+		<div id="content">
+			<div id='askPositionTalbe' style='display:none'>
+				<p><span id='whoAsk'>xiaoming</span>向你发送位置请求。</p>
+				<button id='accept' value='接受'>接受</button>
+				<button id='reject' value='拒绝'>拒绝</button>
+			</div>
+			<div id='userList' style='display:block'>
+				<!-- <ul>
+					<li id='1233'>
+
+						<div class='portrail'>
+							<img src="images/portrail/1.jpg" alt="">
+
+						</div>
+						<span class='unreadCount'>11</span>
+						<div class="nickname"><p>WuJing Win</p><span>Join At:22:22</span></div>
+					</li>
+					<li id='1233'>
+						<div class='portrail'>
+							<img src="images/portrail/1.jpg" alt="">
+						</div>
+						<div class="nickname"><p>WuJing Win</p><span>Join At:22:22</span></div>
+					</li>
+				</ul> -->
+			</div>
+			<div id='rooms' style='display:none'>
+				<ul id='singlechatRoom' class='room'>
+					<!-- <li class='me'>
+						<div class='portrail'>
+							<img src="images/portrail/1.jpg" alt="">
+						</div>
+						<div class='name'>ransixi</div>
+						<div class='message'>
+							<span class='arrow'></span>
+							Hi my name is ransixi,
+						</div>
+						<div class="clearBoth"></div>
+					</li>
+					<li class='you'>
+						<div class='name'>ransixi</div>
+						<div class='portrail'>
+							<img src="images/portrail/6.jpg" alt="">
+						</div>
+						<div class='message'>
+							<span class='arrow'></span>
+							Hello nice to meet , Do you have time tonignt?
+							
+						</div>
+						<div class="clearBoth"></div>
+					</li> -->
+					<li class='inform'>
+		                 向所有人广播
+					</li>
+				</ul> 
+			</div>
+			<!--userlist and rooms end-->
+			<div id='map' style='display:none'></div>
+		</div>
+		<footer>
+			<div id='moMap' style='display: none'>
+				<div id='moTable'></div>
+				<ul>
+					<li>
+						<div class='card'>表情</div>
+					</li>
+					<li>
+						<div class='card' >
+							图片
+							<input id='sendImage' type="file" value='image'/>
+						</div>
+					</li>
+					<li>
+						<div class='card' id='sendShare'>共享位置</div>
+
+					</li>
+				</ul>
+			</div>
+			<nav style='display:block'>
+				<ul>
+					<li><span class='glyphicon glyphicon-user'></span>好友</li>
+					<li><span class='glyphicon glyphicon-envelope'></span>广播</li>
+					<li><span class='glyphicon glyphicon-globe'></span>地图</li>
+				</ul>
+				
+			</nav>
+			<div id='inputArea' style='display:none'>
+				<div id="inputText">
+					<input type="text">
+					<div id="plus"><span class='glyphicon glyphicon-plus'></span></div>
+				</div>
+				<div id="send">
+					<a href="#">OK</a>
+				</div>	
+			</div>
+		</footer>
+	</div>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=df1639d0f65efdf40f515b59bc8b7da2"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src='Chater.js'></script>
+<script src='login_components/login.js'></script>
+<script src='chat_components/chat.js'></script>
+<script src='chat_components/socket.js'></script>
+<script src='./map_components/map.js'></script>
+</body>
+</html>
